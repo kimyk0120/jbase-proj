@@ -5,7 +5,14 @@
 ```
 
 - Spring Boot
+- Spring Data JPA
+- MariaDB
+- Gradle
 - Multi module
+- Swagger
+- Lombok
+- ObjectMapper
+
 
 
 

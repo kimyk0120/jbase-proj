@@ -1,5 +1,6 @@
 package api.test;
 
+import api.test.model.TestResponse;
 import db.test.TestRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,8 +16,15 @@ public class TestController {
 
     private final TestRepository testRepository;
     @GetMapping("/me")
-    public String me() throws Exception {
-        log.info(testRepository.findById(1L).orElseThrow(()->new Exception()).toString());
-        return "me";
+    public TestResponse me() throws Exception {
+        log.info("test me");
+        var testEntity = testRepository.findById(1L).orElseThrow(()->new Exception());
+        return TestResponse.builder()
+                .id(testEntity.getId())
+                .memo(testEntity.getMemo())
+                .amount(testEntity.getAmount())
+                .modifiedAt(testEntity.getModifiedAt())
+                .createdAt(testEntity.getCreatedAt())
+                .build();
     }
 }
