@@ -1,0 +1,12 @@
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      format_sql: true
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    url: jdbc:mariadb://localhost:3306/test?useSSL=false&useUnicode=true&allowPublicKeyRetrieval=true
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: root
+    password: qwer
