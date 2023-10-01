@@ -1,9 +1,11 @@
 # jbase-proj
 
 ```
-- Spring Boot base API project with Multi module
+ Spring Boot base API project with Multi module
 ```
+## Structure
 
+```
 - Spring Boot
 - Spring Data JPA
 - MariaDB
@@ -12,6 +14,19 @@
 - Swagger
 - Lombok
 - ObjectMapper
+ 
+
+* todo
+  * business layer
+  * interceptor
+  * logger filter
+  * exception handler
+  * jwt
+  * UserSessionResolver
+  * aop
+  * spring security
+  
+```
 
 
 
