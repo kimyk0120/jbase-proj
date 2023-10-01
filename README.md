@@ -24,7 +24,7 @@
   * jwt
   * UserSessionResolver
   * aop
-  * spring security
+  * spring security (admin)
   
 ```
 
