@@ -12,6 +12,7 @@ import java.util.List;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
+    // interceptor
     private final AuthorizationInterceptor authorizationInterceptor;
 
     private List<String> OPEN_API = List.of(

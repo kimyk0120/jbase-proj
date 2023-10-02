@@ -1,9 +1,11 @@
-package api.test.controller;
+package api.domain.test.controller;
 
-import api.test.model.TestResponse;
+import api.common.api.Api;
+import api.domain.test.model.TestResponse;
 import db.test.TestRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,15 +18,15 @@ public class TestController {
 
     private final TestRepository testRepository;
     @GetMapping("/me")
-    public TestResponse me() throws Exception {
+    public Api<TestResponse> me() throws Exception {
 
         var testEntity = testRepository.findById(1L).orElseThrow(()->new Exception());
-        return TestResponse.builder()
+        return Api.OK(TestResponse.builder()
                 .id(testEntity.getId())
                 .memo(testEntity.getMemo())
                 .amount(testEntity.getAmount())
                 .modifiedAt(testEntity.getModifiedAt())
                 .createdAt(testEntity.getCreatedAt())
-                .build();
+                .build());
     }
 }

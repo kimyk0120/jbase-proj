@@ -18,7 +18,8 @@
 - logger filter
 - exception handler
 
-* todo
+* todo (ch4)
+  * common code test, exception handler test
   * business layer
   * jwt
   * UserSessionResolver
