@@ -14,13 +14,12 @@
 - Swagger
 - Lombok
 - ObjectMapper
- 
+- interceptor
+- logger filter
+- exception handler
 
 * todo
   * business layer
-  * interceptor
-  * logger filter
-  * exception handler
   * jwt
   * UserSessionResolver
   * aop

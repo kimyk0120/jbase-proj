@@ -1,4 +1,4 @@
-package api.test;
+package api.test.controller;
 
 import api.test.model.TestResponse;
 import db.test.TestRepository;
@@ -17,7 +17,7 @@ public class TestController {
     private final TestRepository testRepository;
     @GetMapping("/me")
     public TestResponse me() throws Exception {
-        log.info("test me");
+
         var testEntity = testRepository.findById(1L).orElseThrow(()->new Exception());
         return TestResponse.builder()
                 .id(testEntity.getId())
