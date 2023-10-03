@@ -19,12 +19,13 @@
 - exception handler
 - business, converter layer
 - jwt
-* userSession Resolver
+- userSession Resolver
+- spring security (admin)
 
 * todo  
-  
-  * spring security (admin)
+   
   * rabbitmq
+  * Server-Sent-Events
   
 ```
 

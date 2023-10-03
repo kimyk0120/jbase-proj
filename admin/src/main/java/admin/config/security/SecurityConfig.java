@@ -26,8 +26,9 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
 
+
         httpSecurity
-//            .csrf().disable()
+//            .csrf(Customizer.withDefaults())
             .authorizeHttpRequests(it ->{
                 it
                     .requestMatchers(
@@ -35,7 +36,6 @@ public class SecurityConfig {
                     ).permitAll()   // resource 에 대해서는 모든 요청 허용
 
                     // swagger 는 인증 없이 통과
-
                     .requestMatchers(
                         SWAGGER.toArray(new String[0])
                     ).permitAll()
