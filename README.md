@@ -19,10 +19,10 @@
 - exception handler
 - business, converter layer
 - jwt
+* userSession Resolver
 
-* todo (ch4) 
+* todo  
   
-  * SessionResolver
   * spring security (admin)
   * rabbitmq
   
