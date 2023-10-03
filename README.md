@@ -22,8 +22,8 @@
 * todo (ch4) 
   * jwt
   * SessionResolver
-  * aop
   * spring security (admin)
+  * rabbitmq
   
 ```
 

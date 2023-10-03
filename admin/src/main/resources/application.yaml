@@ -1,0 +1,27 @@
+
+server:
+  port: 8081
+
+spring:
+  application:
+    name: admin
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: admin
+#    password: admin123!@#
+  jpa:
+    show-sql: true
+    properties:
+      format_sql: true
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    url: jdbc:mariadb://localhost:3306/test?useSSL=false&useUnicode=true&allowPublicKeyRetrieval=true
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: root
+    password: qwer
+
+
+
+
