@@ -10,3 +10,11 @@ spring:
     driver-class-name: org.mariadb.jdbc.Driver
     username: root
     password: qwer
+
+token:
+  secret:
+    key: SpringBootJWTHelperTokenSecretKeyValue123!@#
+  access-token:
+    plus-hour: 1
+  refresh-token:
+    plus-hour: 12

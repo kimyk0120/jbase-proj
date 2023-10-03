@@ -17,12 +17,11 @@
 - interceptor
 - logger filter
 - exception handler
+- business, converter layer
 
-* todo (ch4)
-  * common code test, exception handler test
-  * business layer
+* todo (ch4) 
   * jwt
-  * UserSessionResolver
+  * SessionResolver
   * aop
   * spring security (admin)
   
