@@ -24,7 +24,6 @@ public class LoggerFilter implements Filter {
 
         chain.doFilter(req, res);
 
-
         // request 정보
         var headerNames = req.getHeaderNames();
         var headerValues = new StringBuilder();
@@ -46,7 +45,6 @@ public class LoggerFilter implements Filter {
         var method = req.getMethod();
 
         log.info(">>>>> uri : {} , method : {} , header : {} , body : {}", uri, method, headerValues, requestBody);
-
 
         // response 정보
         var responseHeaderValues = new StringBuilder();

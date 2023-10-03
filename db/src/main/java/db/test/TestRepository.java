@@ -9,4 +9,6 @@ public interface TestRepository extends JpaRepository<TestEntity, Long> {
 
     // select * from test_entity order by created_at desc limit 1;
     Optional<TestEntity> findFirstByOrderByCreatedAtDesc();
+
+    Optional<TestEntity> findById(Long id);
 }

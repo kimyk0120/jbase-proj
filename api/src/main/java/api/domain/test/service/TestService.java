@@ -18,4 +18,8 @@ public class TestService {
         return testRepository.findFirstByOrderByCreatedAtDesc()
             .orElseThrow(() -> new ApiException(ErrorCode.NULL_POINT, "Test Entity Null"));
     }
+
+    public TestEntity getById(Long id) {
+        return testRepository.findById(id).orElseThrow(() -> new ApiException(ErrorCode.NULL_POINT, "Test Entity Null"));
+    }
 }

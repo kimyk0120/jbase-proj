@@ -18,9 +18,10 @@
 - logger filter
 - exception handler
 - business, converter layer
+- jwt
 
 * todo (ch4) 
-  * jwt
+  
   * SessionResolver
   * spring security (admin)
   * rabbitmq

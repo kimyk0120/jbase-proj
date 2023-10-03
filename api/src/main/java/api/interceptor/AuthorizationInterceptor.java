@@ -1,18 +1,28 @@
 package api.interceptor;
 
+import api.common.error.ErrorCode;
+import api.common.error.TokenErrorCode;
+import api.common.exception.ApiException;
+import api.domain.token.business.TokenBusiness;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.resource.ResourceHttpRequestHandler;
+
+import java.util.Objects;
 
 @Slf4j
 @RequiredArgsConstructor
 @Component
 public class AuthorizationInterceptor implements HandlerInterceptor {
+
+    private final TokenBusiness tokenBusiness;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -28,11 +38,20 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
             return true;
         }
 
-        // TODO header 검증
+        var accessToken = request.getHeader("authorization-token");
+        if(accessToken == null){
+            throw new ApiException(TokenErrorCode.AUTHORIZATION_TOKEN_NOT_FOUND);
+        }
+
+        var id = tokenBusiness.validationAccessToken(accessToken);
+
+        if(id != null){
+            var requestContext = Objects.requireNonNull(RequestContextHolder.getRequestAttributes());
+            requestContext.setAttribute("id", id, RequestAttributes.SCOPE_REQUEST);
+            return true;
+        }
 
 
-
-
-        return true;    // 일단 통과 처리
+        throw new ApiException(ErrorCode.BAD_REQUEST, "인증실패");
     }
 }
