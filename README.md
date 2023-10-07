@@ -24,7 +24,7 @@
 
 * todo  
    
-  * rabbitmq
+  * rabbitmq (api to admin)
   * Server-Sent-Events
   
 ```
