@@ -3,6 +3,17 @@
 ```
  Spring Boot base API project with Multi module
 ```
+
+## Getting Started
+
+```
+- git clone
+- cd ${proj}/docker-compose
+- $ docker-compose up -d (MariaDB, RabbitMQ)
+- module application run
+```
+
+
 ## Structure
 
 ```
@@ -21,13 +32,14 @@
 - jwt
 - userSession Resolver
 - spring security (admin)
+- rabbitmq (api to admin)
 
-* Todo  
-   
-  * rabbitmq (api to admin)
-  * Server-Sent-Events
-  
+* Todo          
+  * Server-Sent-Events  
 ```
+
+
+
 
 
 

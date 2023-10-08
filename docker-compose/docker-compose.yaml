@@ -1,0 +1,51 @@
+# Docker Compose 파일 포맷 버전 지정
+version: '3.7'
+
+# 컨테이너에서 사용하는 volume 설정으로 대체 가능(옵션)
+#volumes:
+
+# 컨테이너간 네트워크 분리를 위한 추가 설정 부분(옵션)
+# 보통은 내부 네트워크를 통해 컨테이너간 통신이 이루어지기 때문에 잘 쓰지는 않는다.
+#networks:
+
+# 컨테이너 설정
+services:
+###################################
+#### RabbitMQ
+###################################
+  rabbitmq:
+    image: rabbitmq:latest
+    ports:
+      - "5672:5672" # rabbit amqp port
+      - "15672:15672" # manage port
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin       # 기본사용자 이름
+      - RABBITMQ_DEFAULT_PASS=admin123!@# # 기본사용자 비밀번호
+    # rabbitmq manager 접속 cmd
+    # rabbitmq-plugins enable rabbitmq_management
+
+###################################
+#### DB Mysql
+###################################
+  mariadb:
+    image: mariadb:latest
+    ports:
+      - "3306:3306"
+    environment:
+        MYSQL_DATABASE: test
+        MYSQL_USER: test
+        MYSQL_PASSWORD: test1!@
+        MYSQL_ROOT_PASSWORD: qwer
+        TZ: Asia/Seoul
+    volumes:
+      #- {연결될 실제 물리 folder path}/{docker 안에 folder path}
+      - ./mariadb/data:/var/lib/mysql
+      # OS 볼륨의 타임존을 따라가게 할때 사용한다.
+      #- /etc/timezone:/etc/timezone:ro      # ubuntu os
+#      - /etc/localtime:/etc/localtime:ro     # cent os
+      - ./mariadb/initdb.d:/docker-entrypoint-initdb.d
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+
+
