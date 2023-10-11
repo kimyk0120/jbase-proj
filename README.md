@@ -33,7 +33,9 @@
 - userSession Resolver
 - spring security (admin)
 - rabbitmq (api to admin)
-  
+
+todo
+- sse 
 ```
 
 
