@@ -33,9 +33,7 @@
 - userSession Resolver
 - spring security (admin)
 - rabbitmq (api to admin)
-
-* Todo          
-  * Server-Sent-Events  
+  
 ```
 
 
